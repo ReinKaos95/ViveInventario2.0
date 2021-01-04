@@ -43,7 +43,7 @@
           <td>{{$key->created_at}}</td>
           <td>{{$key->updated_at}}</td>
           <td><a href="{{url('/admin/equipment/'.$key->id.'/edit')}}" class="btn btn-primary">Actualizar</a>
-               @include('admin.equipment.delete',['user'=>$key])
+               @include('admin.equipment.delete',['equipment'=>$key])
              </td>
         </tr>
         @endforeach
