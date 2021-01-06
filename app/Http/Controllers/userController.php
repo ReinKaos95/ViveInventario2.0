@@ -24,7 +24,7 @@ class userController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.users.create', compact('users'));
     }
 
     /**
@@ -35,7 +35,13 @@ class userController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $usuarios = new User;
+       $usuarios->name = $request->name;
+       $usuarios->email = $request->email;
+       $usuarios->password = bcrypt($request->password);
+       if ($usuarios->save()) {
+       return redirect('/admin/users');
+       } 
     }
 
     /**
@@ -57,7 +63,8 @@ class userController extends Controller
      */
     public function edit($id)
     {
-        //
+            $users=User::findOrFail($id);
+        return view('admin.users.edit', compact('users'));
     }
 
     /**
@@ -69,7 +76,17 @@ class userController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+              $users=User::findOrFail($id);
+
+       $users->name = $request->name;
+       $users->email = $request->email;
+       if ($users->password != null) {
+       $users->password = $request->password;
+       }
+       
+       $users->save();
+       
+       return redirect('/admin/users');
     }
 
     /**

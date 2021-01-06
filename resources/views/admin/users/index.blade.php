@@ -24,7 +24,7 @@
           <td>{{$key->email}}</td>
           <td>{{$key->created_at}}</td>
           <td>{{$key->updated_at}}</td>
-          <td><a href="{{url('/admin/equipment/'.$key->id.'/edit')}}" class="btn btn-primary">Actualizar</a>
+          <td><a href="{{url('/admin/users/'.$key->id.'/edit')}}" class="btn btn-primary">Actualizar</a>
                @include('admin.users.delete',['user'=>$key])
         </tr>
         @endforeach
