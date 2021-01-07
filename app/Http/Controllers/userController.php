@@ -43,7 +43,6 @@ class userController extends Controller
        $users->email = $request->email;
        $users->password = bcrypt($request->password);
        if ($users->save()) {
-        $users->assignRole($request->role);
        return redirect('/admin/users');
        } 
     }
@@ -68,9 +67,8 @@ class userController extends Controller
     public function edit($id)
     {
         $users=User::findOrFail($id);
-           $roles=Role::all()->pluck('name', 'id');
 
-      return view('admin.users.edit', compact('users','roles'));
+      return view('admin.users.edit', compact('users'));
     }
 
     /**
@@ -89,7 +87,7 @@ class userController extends Controller
        if ($users->password != null) {
        $users->password = $request->password;
        }
-        $users->syncRoles($request->role);
+
        $users->save();
        
        return redirect('/admin/users');
@@ -104,7 +102,6 @@ class userController extends Controller
     public function destroy($id)
     {
          $users=User::findOrFail($id);
-         $users->removeRole($users->roles->implode('name', ','));
              if ($users->delete()) {
        return redirect('/admin/users');
    }

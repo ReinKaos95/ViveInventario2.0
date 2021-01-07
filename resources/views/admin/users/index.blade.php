@@ -11,6 +11,7 @@
         <tr>
           <th>Id</th>
           <th>Nombre</th>
+          <th>Apellido</th>
           <th>Email</th>
           <th>Roles</th>
           <th>Creado a </th>
@@ -22,6 +23,7 @@
         <tr>
           <td>{{$key->id}}</td>
           <td>{{$key->name}}</td>
+          <td>{{$key->surname}}</td>
           <td>{{$key->email}}</td>
           <td>{{$key->roles}}</td>
           <td>{{$key->created_at}}</td>

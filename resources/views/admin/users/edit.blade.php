@@ -20,7 +20,12 @@
 
               </div>
 
-       
+         <div class="form-label-group">
+                <input id="surname" type="text" class="form-control" name="surname" value="{{$users->surname}}" required autofocus>
+                <label for="inputSurname">Surname</label>
+
+              </div>
+
                     <div class="form-label-group">
                  <input id="email" type="email" class="form-control" name="email" value="{{$users->email}}" required>
                 <label for="inputEmail">Email address</label>
@@ -37,18 +42,7 @@
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                 <label for="inputConfirmPassword">Confirm password</label>
               </div>
-              <div class="form-group">
-        <label for="role">Role</label>
-        <select class="form-control" name="role">
-          @foreach($roles as $key => $value)
-          @if($users->hasRole($value))
-          <option value="{{$value}}" selected>{{$value}}</option>
-          @else
-          <option value="{{$value}}" >{{$value}}</option>
-          @endif
-          @endforeach
-        </select>
-      </div>
+         
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
