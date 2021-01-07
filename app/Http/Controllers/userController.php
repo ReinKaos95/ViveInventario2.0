@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\User;
+use App\Role;
 use Illuminate\Http\Request;
 
 class userController extends Controller
@@ -24,7 +25,9 @@ class userController extends Controller
      */
     public function create()
     {
-        return view('admin.users.create', compact('users'));
+           $roles=Role::all()->pluck('name', 'id');
+
+      return view('admin.users.create',  compact('roles'));
     }
 
     /**
@@ -40,6 +43,7 @@ class userController extends Controller
        $usuarios->email = $request->email;
        $usuarios->password = bcrypt($request->password);
        if ($usuarios->save()) {
+        $usuarios->assignRole($request->role);
        return redirect('/admin/users');
        } 
     }
@@ -63,8 +67,9 @@ class userController extends Controller
      */
     public function edit($id)
     {
-            $users=User::findOrFail($id);
-        return view('admin.users.edit', compact('users'));
+           $roles=Role::all()->pluck('name', 'id');
+
+      return view('admin.users.edit', compact('users','roles'));
     }
 
     /**
@@ -83,7 +88,7 @@ class userController extends Controller
        if ($users->password != null) {
        $users->password = $request->password;
        }
-       
+        $users->syncRoles($request->role);
        $users->save();
        
        return redirect('/admin/users');
@@ -97,7 +102,15 @@ class userController extends Controller
      */
     public function destroy($id)
     {
-        User::destroy($id);
-      return back();
+         $users=User::findOrFail($id);
+         $users->removeRole($users->roles->implode('name', ','));
+             if ($users->delete()) {
+       return redirect('/admin/users');
+   }
+       else{
+        return response()->json([
+            'mensaje'=>'error al eliminar usuario'
+        ]);
+       }
     }
 }

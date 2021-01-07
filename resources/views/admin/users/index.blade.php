@@ -12,6 +12,7 @@
           <th>Id</th>
           <th>Nombre</th>
           <th>Email</th>
+          <th>Roles</th>
           <th>Creado a </th>
           <th>Actualizado a</th>
           <th>Funciones</th>
@@ -22,6 +23,7 @@
           <td>{{$key->id}}</td>
           <td>{{$key->name}}</td>
           <td>{{$key->email}}</td>
+          <td>{{$key->roles->implode('name', ',')}}}}</td>
           <td>{{$key->created_at}}</td>
           <td>{{$key->updated_at}}</td>
           <td><a href="{{url('/admin/users/'.$key->id.'/edit')}}" class="btn btn-primary">Actualizar</a>
