@@ -38,12 +38,12 @@ class userController extends Controller
      */
     public function store(Request $request)
     {
-       $usuarios = new User;
-       $usuarios->name = $request->name;
-       $usuarios->email = $request->email;
-       $usuarios->password = bcrypt($request->password);
-       if ($usuarios->save()) {
-        $usuarios->assignRole($request->role);
+       $users = new User;
+       $users->name = $request->name;
+       $users->email = $request->email;
+       $users->password = bcrypt($request->password);
+       if ($users->save()) {
+        $users->assignRole($request->role);
        return redirect('/admin/users');
        } 
     }
@@ -67,6 +67,7 @@ class userController extends Controller
      */
     public function edit($id)
     {
+        $users=User::findOrFail($id);
            $roles=Role::all()->pluck('name', 'id');
 
       return view('admin.users.edit', compact('users','roles'));
