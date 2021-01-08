@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\User;
-use App\Role;
 use Illuminate\Http\Request;
 
 class userController extends Controller
@@ -25,9 +24,9 @@ class userController extends Controller
      */
     public function create()
     {
-           $roles=Role::all()->pluck('name', 'id');
 
-      return view('admin.users.create',  compact('roles'));
+
+      return view('admin.users.create',  compact('users'));
     }
 
     /**
@@ -40,6 +39,7 @@ class userController extends Controller
     {
        $users = new User;
        $users->name = $request->name;
+       $users->surname = $request->surname;
        $users->email = $request->email;
        $users->password = bcrypt($request->password);
        if ($users->save()) {
@@ -83,6 +83,7 @@ class userController extends Controller
               $users=User::findOrFail($id);
 
        $users->name = $request->name;
+       $users->surname = $request->surname;
        $users->email = $request->email;
        if ($users->password != null) {
        $users->password = $request->password;
