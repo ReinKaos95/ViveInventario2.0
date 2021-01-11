@@ -46,6 +46,9 @@
                                     </span>
                                 @endif
     </div>
+        <div class="float-left">
+      <input type="submit" class="btn btn-primary" value="Sign in" />
+      </div>
     <div class="float-right">
       <input type="submit" class="btn btn-primary" value="Register" />
       </div>
