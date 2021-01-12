@@ -55,6 +55,18 @@
                                 @endif
               </div>
 
+     <div class="form-label-group{{ $errors->has('us_rol_id') ? ' has-error' : '' }}">
+                  <select class="form-form-label-group" name="role">
+          @foreach($role as $key => $value)
+          <option value="{{$value}}">{{$key}}</option>
+          @endforeach
+        </select>
+                                                    @if ($errors->has('us_rol_id'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('us_rol_id') }}</strong>
+                                    </span>
+                                @endif
+              </div>
               <div class="form-label-group">
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                 <label for="inputConfirmPassword">Confirm password</label>

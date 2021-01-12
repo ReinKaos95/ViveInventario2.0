@@ -13,10 +13,15 @@
 Route::get('/', function () {
     return view('auth.login');
 });
+Route::get('/registro', 'RegisterController@select', function () {
+    return view('auth.register');
+})->name('Registro');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
 
 Route::resource('admin/users', 'userController');
 

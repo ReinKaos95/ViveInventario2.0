@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Rol;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -19,6 +20,10 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
+    public function select()
+    {
+        $role['role']=rols::paginate();
+    }
 
     use RegistersUsers;
 
@@ -48,6 +53,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+            'us_rol_id' => 'required|integer',
             'name' => 'required|string|max:255',
             'surname' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
@@ -61,13 +67,14 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    /*protected function create(array $data)
     {
         return User::create([
+            'us_rol_id' => $data['us_rol_id'],
             'name' => $data['name'],
             'surname' => $data['surname'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
-    }
+    }*/
 }
