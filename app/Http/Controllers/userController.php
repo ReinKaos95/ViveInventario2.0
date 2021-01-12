@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\User;
+use App\Rol;
 use Illuminate\Http\Request;
 
 class userController extends Controller
@@ -25,8 +26,8 @@ class userController extends Controller
     public function create()
     {
 
-
-      return view('admin.users.create',  compact('users'));
+        $roles=Rol::all()->pluck('id', 'rol_tipo');
+      return view('admin.users.create',  compact('roles'));
     }
 
     /**
@@ -43,6 +44,7 @@ class userController extends Controller
        $users->email = $request->email;
        $users->password = bcrypt($request->password);
        if ($users->save()) {
+        $users->assignRole($request->rol);
        return redirect('/admin/users');
        } 
     }
@@ -66,9 +68,9 @@ class userController extends Controller
      */
     public function edit($id)
     {
-        $users=User::findOrFail($id);
+       $roles=Rol::all()->pluck('id', 'rol_tipo');
 
-      return view('admin.users.edit', compact('users'));
+      return view('admin.users.edit', compact('users','roles'));
     }
 
     /**
@@ -88,7 +90,7 @@ class userController extends Controller
        if ($users->password != null) {
        $users->password = $request->password;
        }
-
+       $users->syncRoles($request->rol);
        $users->save();
        
        return redirect('/admin/users');
@@ -102,6 +104,7 @@ class userController extends Controller
      */
     public function destroy($id)
     {
+        $users->removeRole($users->roles->implode('name', ','));
          $users=User::findOrFail($id);
              if ($users->delete()) {
        return redirect('/admin/users');

@@ -37,6 +37,17 @@
 
               </div>
 
+                  <div class="form-label-group">
+               
+                       
+                  <select class="form-form-label-group" name="role">
+          @foreach($roles as $key => $value)
+          <option value="{{$value}}">{{$key}}</option>
+          @endforeach
+        </select>
+
+              </div>
+
               <div class="form-label-group">
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                 <label for="inputConfirmPassword">Confirm password</label>
