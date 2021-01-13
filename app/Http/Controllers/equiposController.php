@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Equipos;
+use App\TipoEquipo;
+use App\Departamentos;
 use Illuminate\Http\Request;
 
 class equiposController extends Controller
@@ -13,8 +15,14 @@ class equiposController extends Controller
      */
     public function index()
     {
-        $equipment=Equipos::all();
-        return view('admin.equipment.index', compact('equipment'));
+        //$equipment=Equipos::all();
+        $equipment['equixte']=Equipos::JOIN("tipo_equipos","tipo_equipos.teq_id","=","equipos.eq_tequid")
+                                    -> JOIN("departamentos","departamentos.dep_id","=","equipos.departamentos_dep_id")
+                                    -> SELECT("id", "eq_modelo", "eq_marca" ,"eq_serial" , "eq_tequid","eq_nbiennacional", "eq_estatus", "equipos.created_at", "equipos.updated_at", "teq_nombre", "dep_nombre")
+                                    -> orderBy('equipos.id', 'asc')
+                                    -> paginate(8);           
+            return view('admin.equipment.index', $equipment );
+
     }
 
     /**
@@ -24,8 +32,9 @@ class equiposController extends Controller
      */
     public function create()
     {
-      
-       return view('admin.equipment.create', compact('equipment'));
+      $tequid=TipoEquipo::all()->pluck('teq_nombre', 'teq_id');
+      $depts=Departamentos::all()->pluck('dep_nombre', 'dep_id');
+       return view('admin.equipment.create', compact('tequid', 'depts'));
     }
 
     /**
@@ -36,13 +45,19 @@ class equiposController extends Controller
      */
     public function store(Request $request)
     {
-        $equipment = new Equipos;
+
+    $equipment = new Equipos;
        $equipment->eq_modelo = $request->eq_modelo;
        $equipment->eq_marca = $request->eq_marca;
        $equipment->eq_serial = $request->eq_serial;
+       $equipment->eq_tequid = $request->eq_tequid;
        $equipment->eq_nbiennacional = $request->eq_nbiennacional;
+       $equipment->departamentos_dep_id = $request->departamentos_dep_id;
+       $equipment->eq_tequid = $request->eq_tequid;
         $equipment->eq_estatus = $request->eq_estatus;
+
            if ($equipment->save()) {
+           
        return redirect('/admin/equipment');
        } 
     }
@@ -67,7 +82,8 @@ class equiposController extends Controller
     public function edit($id)
     {
         $equipment=Equipos::findOrFail($id);
-        return view('admin.equipment.edit', compact('equipment'));
+         
+        return view('admin.equipment.edit', compact('equipment', 'tepid', 'depts'));
 
     }
 
@@ -80,10 +96,12 @@ class equiposController extends Controller
      */
     public function update(Request $request, $id)
     {
+ 
         $equipment=Equipos::findOrFail($id);
           $equipment->eq_modelo = $request->eq_modelo;
        $equipment->eq_marca = $request->eq_marca;
        $equipment->eq_serial = $request->eq_serial;
+       $equipment->eq_tequid = $request->eq_tequid;
        $equipment->eq_nbiennacional = $request->eq_nbiennacional;
         $equipment->eq_estatus = $request->eq_estatus;
            if ($equipment->save()) {

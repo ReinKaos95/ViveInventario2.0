@@ -11,9 +11,7 @@
                     <div class="card-body">
                         <img src="http://www.ansonika.com/mavia/img/registration_bg.svg" style="width:30%">
                         <h2 class="py-3">Registros de equipos</h2>
-                        <p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.
-
-</p>
+                        <p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.</p>
                     </div>
                 </div>
             </div>
@@ -23,28 +21,50 @@
                   {{ csrf_field() }}
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                          <input name="eq_modelo" placeholder="Modelo" class="form-control" type="text" required>
-                        </div>
-                        <div class="form-group col-md-6">
                           <input type="text" class="form-control" name="eq_marca" placeholder="Marca" required>
                         </div>
+                        <div class="form-group col-md-6">
+                          <input name="eq_modelo" placeholder="Modelo" class="form-control" type="text" required>
+                        </div>
                       </div>
+                      <br>
+                    <div class="form-row">
+                        <!--label for="role">tipo de equipos</label-->
+                        <select class="form-control" name="eq_tequid">
+                            <option value="">Seleccione Equipo</option>
+                            @foreach($tequid as $key => $value)
+                                <option value="{{$key}}">{{$value}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <br>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <input name="eq_serial" placeholder="Serial" class="form-control" required type="text">
                         </div>
-                     <div class="form-group col-md-6">
+                        <div class="form-group col-md-6">
                             <input name="eq_nbiennacional" placeholder="Numero Bien nacional" class="form-control" required type="text">
                         </div>
-                        <div class="form-group col-md-12">
-                                  <input name="eq_estatus" placeholder="Estado" class="form-control" required type="text">
+                    </div>
+                    <br>
+                    <div class="form-row">
+                        <!--label for="role">Departamentos</label-->
+                        <select class="form-control" name="departamentos_dep_id">
+                            <option value="">Seleccione Departamento</option>
+                            @foreach($depts as $key => $value)
+                                <option value="{{$key}}">{{$value}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <br>
+                        <div class="form-group col-md-14">
+                            <input name="eq_estatus" placeholder="Estado" class="form-control" required type="text">
+                            <input type="submit" value="registrar" class="btn btn-primary">
                         </div>
                     </div>
-                 
-                    
-                    <div class="form-row">
-                        <input type="submit" value="registrar" class="btn btn-primary">
-                    </div>
+                    <!--div class="form-row"-->
+                        
+                    <!--/div-->
                 </form>
             </div>
         </div>

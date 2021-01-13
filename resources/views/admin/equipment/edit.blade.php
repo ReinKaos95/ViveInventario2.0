@@ -30,6 +30,19 @@
                           <input type="text" class="form-control" name="eq_marca" placeholder="Marca" required value="{{$equipment->eq_marca}}">
                         </div>
                       </div>
+                                  <br>
+                    <div class="form-row">
+                <label for="role">tipo de equipos</label>
+                <select class="form-control" name="eq_tequid">
+                    @foreach($equipment as $key => $value)
+                    @if($equipment->exists($value))
+                    <option value="{{$key}}" selected>{{$value}}</option>
+                    @else
+                    <option value="{{$key}}" >{{$value}}</option>
+                    @endif
+                    @endforeach{$key}}">{{$value}}</option>
+                </select>
+            </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <input name="eq_serial" placeholder="Serial" class="form-control" required type="text" value="{{$equipment->eq_serial}}">

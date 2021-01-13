@@ -14,7 +14,9 @@ class CreateUbicacionEquiposTable extends Migration
     public function up()
     {
         Schema::create('ubicacion_equipos', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('ubeq_id');
+            $table->string('ubeq_ombre');
+            $table->string('ubeq_descripcion');
             $table->timestamps();
         });
     }

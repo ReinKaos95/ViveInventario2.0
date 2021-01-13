@@ -22,24 +22,28 @@
             <th>Modelo</th>
             <th>Marca</th>
             <th>Serial</th>
+            <th>Tipo de equipo</th>
             <th>Bien nacional</th>
             <th>Estatus</th>
+            <th>Departamento</th>
             <th>Agregado a</th>
             <th>Actualizado a</th>
             <th>Acciones</th>
          </tr>
             </thead>
             <tbody>
-        @if($equipment)
-        @foreach($equipment as $key)
+        
+        @foreach($equixte as $key)
         <tr>
 
           <td>{{$key->id}}</td>
           <td>{{$key->eq_modelo}}</td>
           <td>{{$key->eq_marca}}</td>
           <td>{{$key->eq_serial}}</td>
+          <td>{{$key->teq_nombre}}</td>
           <td>{{$key->eq_nbiennacional}}</td>
           <td>{{$key->eq_estatus}}</td>
+          <td>{{$key->dep_nombre}}</td>
           <td>{{$key->created_at}}</td>
           <td>{{$key->updated_at}}</td>
           <td><a href="{{url('/admin/equipment/'.$key->id.'/edit')}}" class="btn btn-primary">Actualizar</a>
@@ -47,7 +51,7 @@
              </td>
         </tr>
         @endforeach
-        @endif
+        
        </tbody>
           </table>
      
