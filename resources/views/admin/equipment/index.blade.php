@@ -19,8 +19,8 @@
             <thead class="cf">
         <tr>
             <th>Id</th>
-            <th>Modelo</th>
             <th>Marca</th>
+            <th>Modelo</th>
             <th>Serial</th>
             <th>Tipo de equipo</th>
             <th>Bien nacional</th>
@@ -37,8 +37,8 @@
         <tr>
 
           <td>{{$key->id}}</td>
-          <td>{{$key->eq_modelo}}</td>
           <td>{{$key->eq_marca}}</td>
+          <td>{{$key->eq_modelo}}</td>
           <td>{{$key->eq_serial}}</td>
           <td>{{$key->teq_nombre}}</td>
           <td>{{$key->eq_nbiennacional}}</td>

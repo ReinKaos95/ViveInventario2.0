@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="col-md-8 py-5 border">
-                <h4 class="pb-4">Registre el equipo en cuestion</h4>
+                <h4 class="pb-4">REGISTROS DE EQUIPOS</h4>
                 <form action="{{url('/admin/equipment')}}" method="post">
                   {{ csrf_field() }}
                     <div class="form-row">
@@ -30,7 +30,7 @@
                       <br>
                     <div class="form-row">
                         <!--label for="role">tipo de equipos</label-->
-                        <select class="form-control" name="eq_tequid">
+                        <select class="form-control form-select " name="eq_tequid" >
                             <option value="">Seleccione Equipo</option>
                             @foreach($tequid as $key => $value)
                                 <option value="{{$key}}">{{$value}}</option>
@@ -59,12 +59,12 @@
                     <br>
                         <div class="form-group col-md-14">
                             <input name="eq_estatus" placeholder="Estado" class="form-control" required type="text">
-                            <input type="submit" value="registrar" class="btn btn-primary">
+                        </div>
+                        <div class="form-row">
+                            <input type="submit" value="Registrar" class="btn btn-primary" style="margin: auto; width: 250px;">
                         </div>
                     </div>
-                    <!--div class="form-row"-->
-                        
-                    <!--/div-->
+                    
                 </form>
             </div>
         </div>
