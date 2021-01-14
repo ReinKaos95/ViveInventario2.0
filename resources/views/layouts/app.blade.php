@@ -42,7 +42,7 @@
                    <a href="{{ url('admin/equipment') }}">Equipos</a>
                 </li>
                 <li>
-                    <a href="#">Events</a>
+                    <a href="#">Prestamos</a>
                 </li>
                 <li>
                     <a href="#">Team</a>
