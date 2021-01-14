@@ -30,23 +30,30 @@
                           <input type="text" class="form-control" name="eq_marca" placeholder="Marca" required value="{{$equipment->eq_marca}}">
                         </div>
                       </div>
-                                  <br>
-                    <div class="form-row">
-                <label for="role">tipo de equipos</label>
-                <select class="form-control" name="eq_tequid">
-                    @foreach($equipment as $key => $value)
-                    @if($equipment->exists($value))
-                    <option value="{{$key}}" selected>{{$value}}</option>
-                    @else
-                    <option value="{{$key}}" >{{$value}}</option>
-                    @endif
-                    @endforeach{$key}}">{{$value}}</option>
-                </select>
-            </div>
+                            <div class="form-row">
+                        <!--label for="role">tipo de equipos</label-->
+                       <select class="form-control form-select " name="eq_tequid" >
+                            @foreach($tequid as $key => $value)
+                                <option value="{{$key}}">{{$value}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <br>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <input name="eq_serial" placeholder="Serial" class="form-control" required type="text" value="{{$equipment->eq_serial}}">
                         </div>
+                            <br>
+                        <div class="form-row">
+                        <!--label for="role">Departamentos</label-->
+                        <select class="form-control" name="departamentos_dep_id">
+                            @foreach($depts as $key => $value)
+                                <option value="{{$key}}">{{$value}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <br>
+                    <br>
                      <div class="form-group col-md-6">
                             <input name="eq_nbiennacional" placeholder="Numero Bien nacional" class="form-control" required type="text" value="{{$equipment->eq_nbiennacional}}">
                         </div>

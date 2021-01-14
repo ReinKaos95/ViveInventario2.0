@@ -86,8 +86,9 @@ class equiposController extends Controller
     public function edit($id)
     {
         $equipment=Equipos::findOrFail($id);
-         
-        return view('admin.equipment.edit', compact('equipment', 'tepid', 'depts'));
+        $tequid=TipoEquipo::all()->pluck('teq_nombre', 'teq_id');
+        $depts=Departamentos::all()->pluck('dep_nombre', 'dep_id');
+        return view('admin.equipment.edit', compact('equipment', 'tequid', 'depts'));
 
     }
 
@@ -102,11 +103,15 @@ class equiposController extends Controller
     {
  
         $equipment=Equipos::findOrFail($id);
-          $equipment->eq_modelo = $request->eq_modelo;
+
+ 
+       $equipment->eq_modelo = $request->eq_modelo;
        $equipment->eq_marca = $request->eq_marca;
        $equipment->eq_serial = $request->eq_serial;
        $equipment->eq_tequid = $request->eq_tequid;
        $equipment->eq_nbiennacional = $request->eq_nbiennacional;
+       $equipment->departamentos_dep_id = $request->departamentos_dep_id;
+       $equipment->eq_tequid = $request->eq_tequid;
         $equipment->eq_estatus = $request->eq_estatus;
            if ($equipment->save()) {
        return redirect('/admin/equipment');
