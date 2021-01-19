@@ -45,7 +45,10 @@ class userController extends Controller
        $users = new User;
        $users->name = $request->name;
        $users->surname = $request->surname;
+      $users->cedula = $request->cedula;
+       $users->user = $request->user;
        $users->email = $request->email;
+          $users->estatus = $request->estatus;
        $users->password = bcrypt($request->password);
        if ($users->save()) {
         //$users->assignRole($request->rol);
@@ -91,7 +94,10 @@ class userController extends Controller
 
        $users->name = $request->name;
        $users->surname = $request->surname;
+      $users->cedula = $request->cedula;
+       $users->user = $request->user;
        $users->email = $request->email;
+          $users->estatus = $request->estatus;
        if ($users->password != null) {
        $users->password = $request->password;
        }

@@ -9,10 +9,12 @@
       <table class="table table-bordered table-striped text-center">
  
         <tr>
-          <th>Id</th>
           <th>Nombre</th>
           <th>Apellido</th>
-          <th>Email</th>
+          <th>Cedula</th>
+          <th>Username</th>
+          <th>Correo</th>
+          <th>Estado</th>
           <th>Roles</th>
           <th>Creado a </th>
           <th>Actualizado a</th>
@@ -21,10 +23,12 @@
         @if($users)
         @foreach($users as $key)
         <tr>
-          <td>{{$key->id}}</td>
           <td>{{$key->name}}</td>
           <td>{{$key->surname}}</td>
+          <td>{{$key->cedula}}</td>
+          <td>{{$key->user}}</td>
           <td>{{$key->email}}</td>
+          <td>{{$key->estatus}}</td>
           <td>{{$key->roles}}</td>
           <td>{{$key->created_at}}</td>
           <td>{{$key->updated_at}}</td>

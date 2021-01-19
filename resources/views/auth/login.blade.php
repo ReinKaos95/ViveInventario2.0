@@ -25,13 +25,13 @@
 <div class="col-md-12 profile_card">
     <form class="form-horizontal"  method="POST" action="{{ route('login') }}">
         {{ csrf_field() }}
-    <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
+    <div class="form-group {{ $errors->has('user') ? ' has-error' : '' }}">
         <i class="fa fa-envelope-o"></i>
-         <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+         <input id="user" type="text" class="form-control" name="user" value="{{ old('user') }}" required autofocus>
 
-                                @if ($errors->has('email'))
+                                @if ($errors->has('user'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('user') }}</strong>
                                     </span>
                                 @endif
     </div>

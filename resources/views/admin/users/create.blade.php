@@ -23,15 +23,27 @@
                          <div class="form-label-group">
                 <input id="surname" type="text" class="form-control" name="surname" value="{{ old('surname') }}" required autofocus>
                 <label for="inputSurname">surname</label>
+              </div>
+                    <div class="form-label-group {{ $errors->has('cedula') ? ' has-error' : '' }}">
+                    <input id="cedula" type="text" class="form-control" name="cedula" required>
+                        <label for="inputCedula">Cedula</label>
 
               </div>
-                    <div class="form-label-group">
+                     <div class="form-label-group {{ $errors->has('user') ? ' has-error' : '' }}">
+                    <input id="user" type="text" class="form-control" name="user" required>
+                        <label for="inputUser">Usuario</label>
+                      </div>
+
+                    <div class="form-label-group{{ $errors->has('email') ? ' has-error' : '' }}">
                  <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
                 <label for="inputEmail">Email address</label>
          
               </div>
-
-                    <div class="form-label-group">
+                                             <div class="form-label-group {{ $errors->has('estatus') ? ' has-error' : '' }}">
+                    <input id="estatus" type="text" class="form-control" name="estatus" required>
+                        <label for="inputUser">Estatus</label>
+                      </div>
+     <div class="form-label-group {{ $errors->has('password') ? ' has-error' : '' }}">
                     <input id="password" type="password" class="form-control" name="password" required>
                         <label for="inputPassword">Password</label>
 
