@@ -21,3 +21,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('admin/users', 'userController');
 
 Route::resource('admin/equipment', 'equiposController');
+
+Route::resource('admin/prestamos', 'prestamosController');

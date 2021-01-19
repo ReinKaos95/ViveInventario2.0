@@ -32,6 +32,7 @@
                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Vivetv.png/245px-Vivetv.png" width="35%">
                 <li class="sidebar-brand">
                      <a href="#" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                        
                                     {{ Auth::user()->name }} 
                                 </a>
                 </li>
@@ -39,13 +40,13 @@
                     <a href="{{ url('admin/users/create') }}"> Registrar usuario</a>
                 </li>
                 <li>
-                   <a href="{{ url('admin/equipment') }}">Equipos</a>
+                   <a href="{{ url('admin/equipment') }}">Registrar Equipos</a>
                 </li>
                 <li>
-                    <a href="#">Prestamos</a>
+                     <a href="{{ url('admin/prestamos') }}"> Prestamos</a>
                 </li>
                 <li>
-                    <a href="#">Team</a>
+                    <a href="#">Auditoria</a>
                 </li>
                 <li>
                     <a href="#">Services</a>
@@ -54,13 +55,13 @@
                      <a href="#">Contact</a>
                 </li>
                 <li>
-                     <a href="{{ url('admin/users') }}"> Settings</a>
+                     <a href="{{ url('admin/users') }}"> Configuracion de Usuarios</a>
                 </li>
                 <li>
                     <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            Salir
                                         </a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}

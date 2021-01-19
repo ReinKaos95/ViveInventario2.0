@@ -11,10 +11,10 @@
           </div>
           <div class="card-body">
             <h5 class="card-title text-center">Register</h5>
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                    <form class="form-horizontal" method="POST" action="{{ route('register') }}"  enctype="multipart/form-data">
                         {{ csrf_field() }}
 
-                           <div class="form-label-group {{ $errors->has('name') ? ' has-error' : '' }}">
+                           <div class="form-label-group {{ $errors->has('name') ? ' has-error' : '' }}" >
                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
                 <label for="inputUserame">Name</label>
 
@@ -54,6 +54,7 @@
                                     </span>
                                 @endif
               </div>
+
 
     
               <div class="form-label-group">

@@ -11,7 +11,7 @@
           </div>
           <div class="card-body">
             <h5 class="card-title text-center">Register</h5>
-                    <form class="form-horizontal" method="POST" action="{{url('/admin/users')}}">
+                    <form class="form-horizontal" method="POST" action="{{url('/admin/users')}}" enctype="multipart/form-data">
                         {{ csrf_field() }}
 
                            <div class="form-label-group">
@@ -36,8 +36,6 @@
                         <label for="inputPassword">Password</label>
 
               </div>
-
-      
 
               <div class="form-label-group">
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
