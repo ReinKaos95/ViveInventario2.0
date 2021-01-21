@@ -33,7 +33,7 @@
                 <li class="sidebar-brand">
                      <a href="#" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                         
-                                    {{ Auth::user()->name }} 
+                                    {{ Auth::user()->user }} 
                                 </a>
                 </li>
                 <li>
