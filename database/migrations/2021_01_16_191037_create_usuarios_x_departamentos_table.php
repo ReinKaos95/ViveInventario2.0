@@ -14,7 +14,9 @@ class CreateUsuariosXDepartamentosTable extends Migration
     public function up()
     {
         Schema::create('usuarios_x_departamentos', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('usxdp_id');
+            $table->string('usxdp_descripcion');
+            $table->string('usxdp_estatus');
             $table->timestamps();
         });
     }

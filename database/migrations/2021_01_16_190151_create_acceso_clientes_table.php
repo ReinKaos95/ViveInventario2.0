@@ -15,6 +15,11 @@ class CreateAccesoClientesTable extends Migration
     {
         Schema::create('acceso_clientes', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('acl_ip');
+            $table->string('acl_descripcion');
+            $table->string('acl_estatus');
+            $table->string('acl_pantalla');
+             $table->integer('acl_us_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

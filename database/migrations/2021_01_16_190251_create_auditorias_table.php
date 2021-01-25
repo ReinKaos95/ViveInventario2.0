@@ -15,6 +15,12 @@ class CreateAuditoriasTable extends Migration
     {
         Schema::create('auditorias', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('au_maquina');
+            $table->string('au_so');
+            $table->string('au_ip');
+            $table->string('au_navegador');
+            $table->timestamp('au_fecha');
+            $table->integer('au_us_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
