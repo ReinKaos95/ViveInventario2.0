@@ -27,5 +27,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-
+    public function role()
+    {
+        return $this->belongsToMany(Rol::class 'usuario_x_departamentos' , 'usxdp_uscedula', 'usxdp_dpid');
+    }
 }
