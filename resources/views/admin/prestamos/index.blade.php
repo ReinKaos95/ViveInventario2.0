@@ -25,7 +25,7 @@
             </thead>
         <tbody>
         
-        @foreach($prestamo as $key)
+        @foreach($prestamos as $key)
         <tr>
           <td>{{$key->usuarios_us_id}}</td>
           <td>{{$key->equipos_eq_id}}</td>

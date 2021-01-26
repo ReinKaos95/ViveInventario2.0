@@ -15,6 +15,8 @@ class CreateUsuarioXDepartamentosTable extends Migration
     {
         Schema::create('usuario_x_departamentos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('usxdp_descripcion');
+            $table->string('usxdp_estatus');
             $table->timestamps();
         });
     }

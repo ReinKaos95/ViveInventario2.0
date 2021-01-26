@@ -15,6 +15,9 @@ class CreatePantallasTable extends Migration
     {
         Schema::create('pantallas', function (Blueprint $table) {
             $table->increments('id');
+                        $table->string('pan_nombre');
+            $table->string('pan_descripcion');
+            $table->string('pan_estatus');
             $table->timestamps();
         });
     }

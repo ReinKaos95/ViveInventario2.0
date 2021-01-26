@@ -15,6 +15,9 @@ class CreateHistoricoMovimientosTable extends Migration
     {
         Schema::create('historico_movimientos', function (Blueprint $table) {
             $table->increments('id');
+                       $table->string('id_equipo');
+              $table->string('id_ubicacion');
+               $table->integer('equipos_eq_id')->references('id')->on('equipos');
             $table->timestamps();
         });
     }

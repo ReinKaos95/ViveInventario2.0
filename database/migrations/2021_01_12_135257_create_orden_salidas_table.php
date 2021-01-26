@@ -15,6 +15,8 @@ class CreateOrdenSalidasTable extends Migration
     {
         Schema::create('orden_salidas', function (Blueprint $table) {
             $table->increments('id');
+                        $table->string('ord_ubicacion');
+            $table->integer('prestamo_equipos_pres_id')->references('id')->on('prestamo_equipos');
             $table->timestamps();
         });
     }
