@@ -83,8 +83,8 @@
                                                     <!--label for="role">Departamentos</label-->
                                 <select class="form-control form-select " name="usuarios_us_id" >
                             <option value="">Seleccione usuario</option>
-                            @foreach($users as $key => $value)
-                                <option value="{{$key}}">{{$value}}</option>
+                            @foreach($users as $key)
+                                <option value="{{$key->id}}">{{$key->user}}</option>
                             @endforeach
                         </select>
                             <div class="invalid-tooltip">
@@ -99,8 +99,8 @@
                                                     <!--label for="role">Departamentos</label-->
                         <select class="form-control form-select " name="equipos_eq_id" >
                             <option value="">Seleccione Equipo</option>
-                            @foreach($tequid as $key => $value)
-                                <option value="{{$key}}">{{$value}}</option>
+                            @foreach($id as $key => $value)
+                                <option value="{{$value}}">{{$value}}</option>
                             @endforeach
                         </select>
                             <div class="invalid-tooltip">

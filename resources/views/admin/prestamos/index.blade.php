@@ -25,10 +25,10 @@
             </thead>
         <tbody>
         
-        @foreach($prestamos as $key)
+        @foreach($prestamo as $key)
         <tr>
-          <td>{{$key->usuarios_us_id}}</td>
-          <td>{{$key->equipos_eq_id}}</td>
+          <td>{{$key->user}}</td>
+          <td>{{$key->eq_tequid}}</td>
           <td>{{$key->pres_salida}}</td>
           <td>{{$key->pres_fecha_salida}}</td>
           <td>{{$key->pres_fecha_entrada}}</td>

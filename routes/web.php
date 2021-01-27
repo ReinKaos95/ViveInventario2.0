@@ -23,3 +23,5 @@ Route::resource('admin/users', 'userController');
 Route::resource('admin/equipment', 'equiposController');
 
 Route::resource('admin/prestamos', 'prestamosController');
+
+Route::resource('admin/usuariosxdepartamento', 'usuarioDepartamentosController');
