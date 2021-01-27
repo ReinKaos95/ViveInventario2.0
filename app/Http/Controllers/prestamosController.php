@@ -22,7 +22,6 @@ class prestamosController extends Controller
     {
        $prestamos['prestamo']=PrestamoEquipo::JOIN("equipos","equipos.id","=","prestamo_equipos.equipos_eq_id")
                                     -> JOIN("users","users.id","=","prestamo_equipos.usuarios_us_id")
-                                    
                                     -> orderBy('prestamo_equipos.id', 'asc')
                                     -> paginate(8); 
             return view('admin.prestamos.index', $prestamos );
