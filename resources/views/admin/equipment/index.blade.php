@@ -18,6 +18,7 @@
             <table class="col-md-12 table-bordered table-striped table-condensed cf">
             <thead class="cf">
         <tr>
+            <th>Id</th>
             <th>Marca</th>
             <th>Modelo</th>
             <th>Serial</th>
@@ -34,6 +35,8 @@
         
         @foreach($equixte as $key)
         <tr>
+
+          <td>{{$key->id}}</td>
           <td>{{$key->eq_marca}}</td>
           <td>{{$key->eq_modelo}}</td>
           <td>{{$key->eq_serial}}</td>

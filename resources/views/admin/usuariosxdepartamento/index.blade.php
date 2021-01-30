@@ -9,31 +9,21 @@
       <table class="table table-bordered table-striped text-center">
  
         <tr>
-          <th>Nombre</th>
-          <th>Apellido</th>
           <th>Cedula</th>
-          <th>Username</th>
-          <th>Correo</th>
-          <th>Estado</th>
-          <th>Roles</th>
+          <th>Departamento</th>
           <th>Creado a </th>
           <th>Actualizado a</th>
           <th>Funciones</th>
         </tr>
-        @if($users)
-        @foreach($users as $key)
+        @if($dept)
+        @foreach($dept as $key)
         <tr>
-          <td>{{$key->name}}</td>
-          <td>{{$key->surname}}</td>
-          <td>{{$key->cedula}}</td>
-          <td>{{$key->user}}</td>
-          <td>{{$key->email}}</td>
-          <td>{{$key->estatus}}</td>
-          <td>{{$key->roles}}</td>
+          <td>{{$key->usxdp_uscedula}}</td>
+          <td>{{$key->dep_nombre}}</td>
           <td>{{$key->created_at}}</td>
           <td>{{$key->updated_at}}</td>
-          <td><a href="{{url('/admin/users/'.$key->id.'/edit')}}" class="btn btn-primary">Actualizar</a>
-               @include('admin.users.delete',['user'=>$key])
+          <td><a href="{{url('/admin/usuariosxdepartamento/'.$key->id.'/edit')}}" class="btn btn-primary">Actualizar</a>
+            @include('admin.usuariosxdepartamento.delete',['dept'=>$key])
         </tr>
         @endforeach
         @endif

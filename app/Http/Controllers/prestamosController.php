@@ -20,9 +20,9 @@ class prestamosController extends Controller
 
     public function index()
     {
-       $prestamos['prestamo']=PrestamoEquipos::JOIN("equipos","prestamo_equipos.id","=","prestamo_equipos.equipos_eq_id")
-                                    -> JOIN("users","prestamo_equipos.id","=","prestamo_equipos.usuarios_us_id")
-                                    -> SELECT("pres_salida", "pres_fecha_salida", "pres_fecha_entrada" ,"pres_estatus" ,"prestamo_equipos.created_at", "prestamo_equipos.updated_at", "user", "eq_tequid")
+      $prestamos['prestamo']=PrestamoEquipos::JOIN("equipos","equipos.id","=","prestamo_equipos.equipos_eq_id")
+                                    -> JOIN("users","users.id","=","prestamo_equipos.usuarios_us_id")
+
                                     -> orderBy('prestamo_equipos.id', 'asc')
                                     -> paginate(8); 
             return view('admin.prestamos.index', $prestamos );
@@ -35,9 +35,9 @@ class prestamosController extends Controller
      */
     public function create()
     {
-    $users=User::all()->pluck('user');
-    $tequid=Equipos::all()->pluck('eq_tequid');
-    return view('admin.prestamos.create', compact('users', 'tequid'));
+    $users=User::all();
+    $id=Equipos::all()->pluck('id');
+    return view('admin.prestamos.create', compact('users', 'id'));
     }
 
     /**

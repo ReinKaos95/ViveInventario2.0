@@ -36,13 +36,14 @@
                     <div class="w-100 border-bottom pb-3 mb-3">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Vivetv.png/245px-Vivetv.png" class="w-75" alt="Logo" style="width: 220px;">
                     </div>
-                    <form class="login-form needs-validation" novalidate action="{{url('/admin/prestamos')}}" method="post">
-                                          {{ csrf_field() }}
+                    <form class="login-form needs-validation" novalidate action="{{Route('prestamos.update',$prestamos->id)}}"method="post">
+                  {{ csrf_field() }}
+                   {{ method_field('PATCH') }}
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-at"></i></span>
                             </div>
-                            <input type="texto" class="form-control" placeholder="E-Salida" aria-label="pres_salida" aria-describedby="basic-addon1" required name="pres_salida">
+                            <input type="texto" class="form-control" placeholder="E-Salida" aria-label="pres_salida" aria-describedby="basic-addon1" required name="pres_salida" value="{{$prestamos->pres_salida}}">
                             <div class="invalid-tooltip">
                                Ingrese la salida
                             </div>
@@ -52,7 +53,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                             </div>
-                            <input type="date" class="form-control" placeholder="fecha de salida" aria-label="pres_fecha_salida" aria-describedby="basic-addon2" required name="pres_fecha_salida">
+                            <input type="date" class="form-control" placeholder="fecha de salida" aria-label="pres_fecha_salida" aria-describedby="basic-addon2" required name="pres_fecha_salida" value="{{$prestamos->pres_fecha_salida}}">
                             <div class="invalid-tooltip">
                                 Fecha de salida
                             </div>
@@ -61,7 +62,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                             </div>
-                            <input type="date" class="form-control" placeholder="fecha de salida" aria-label="pres_fecha_entrada" aria-describedby="basic-addon2" required name="pres_fecha_entrada">
+                            <input type="date" class="form-control" placeholder="fecha de salida" aria-label="pres_fecha_entrada" aria-describedby="basic-addon2" required name="pres_fecha_entrada" value="{{$prestamos->pres_fecha_entrada}}">
                             <div class="invalid-tooltip">
                                 Fecha de entrada
                             </div>
@@ -71,7 +72,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon4"><i class="fas fa-user-edit"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Estatus" aria-label="pres_estatus" aria-describedby="basic-addon4" required  name="pres_estatus">
+                            <input type="text" class="form-control" placeholder="Estatus" aria-label="pres_estatus" aria-describedby="basic-addon4" required  name="pres_estatus"  value="{{$prestamos->pres_estatus}}">
                             <div class="invalid-tooltip">
                                 Estatus
                             </div>
@@ -83,8 +84,8 @@
                                                     <!--label for="role">Departamentos</label-->
                                 <select class="form-control form-select " name="usuarios_us_id" >
                             <option value="">Seleccione usuario</option>
-                            @foreach($users as $key)
-                                <option value="{{$key->id}}">{{$key->user}}</option>
+                            @foreach($users as $key => $value)
+                                <option value="{{$key}}">{{$value}}</option>
                             @endforeach
                         </select>
                             <div class="invalid-tooltip">
@@ -99,8 +100,8 @@
                                                     <!--label for="role">Departamentos</label-->
                         <select class="form-control form-select " name="equipos_eq_id" >
                             <option value="">Seleccione Equipo</option>
-                            @foreach($id as $key => $value)
-                                <option value="{{$value}}">{{$value}}</option>
+                            @foreach($tequid as $key => $value)
+                                <option value="{{$key}}">{{$value}}</option>
                             @endforeach
                         </select>
                             <div class="invalid-tooltip">
@@ -116,7 +117,6 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-md-8 banner-sec rounded">
 
             </div>
         </div>

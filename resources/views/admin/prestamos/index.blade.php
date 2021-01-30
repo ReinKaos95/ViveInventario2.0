@@ -12,7 +12,7 @@
 <table class="table table-borderless">
            <thead class="cf">
         <tr>
-        	<th>Usuario</th>
+          <th>Usuario</th>
             <th>Equipo</th>
             <th>Codigo salida</th>
             <th>Fecha de salida</th>
@@ -27,8 +27,8 @@
         
         @foreach($prestamo as $key)
         <tr>
-          <td>{{$key->usuarios_us_id}}</td>
-          <td>{{$key->equipos_eq_id}}</td>
+          <td>{{$key->user}}</td>
+          <td>{{$key->id}}</td>
           <td>{{$key->pres_salida}}</td>
           <td>{{$key->pres_fecha_salida}}</td>
           <td>{{$key->pres_fecha_entrada}}</td>

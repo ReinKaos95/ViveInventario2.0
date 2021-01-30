@@ -52,7 +52,7 @@
                     <a href="#">Services</a>
                 </li>
                  <li>
-                     <a href="#">Contact</a>
+                     <a href="{{ url('admin/usuariosxdepartamento') }}"> Usuarios por departamentos</a>
                 </li>
                 <li>
                      <a href="{{ url('admin/users') }}"> Configuracion de Usuarios</a>
