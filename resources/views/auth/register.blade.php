@@ -65,6 +65,14 @@
                                     </span>
                                 @endif
               </div>
+                <div class="form-label-group {{ $errors->has('photos') ? ' has-error' : '' }}">
+                  <input accept="image/*" type="file" name="photos" required>
+                                  @if ($errors->has('photos'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('photos') }}</strong>
+                                    </span>
+                                @endif
+                      </div>
                                <div class="form-label-group {{ $errors->has('estatus') ? ' has-error' : '' }}">
                     <input id="estatus" type="text" class="form-control" name="estatus" required>
                         <label for="inputUser">Estatus</label>

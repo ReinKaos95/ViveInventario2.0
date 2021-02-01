@@ -32,7 +32,7 @@
                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Vivetv.png/245px-Vivetv.png" width="35%">
                 <li class="sidebar-brand">
                      <a href="#" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                        
+                                 <img src="../images/{{Auth::user()->photos}}" width="25" />
                                     {{ Auth::user()->user }} 
                                 </a>
                 </li>

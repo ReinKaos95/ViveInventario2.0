@@ -1,25 +1,19 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editEquipo{{$key->id}}">
+  actualizar
+</button>
 
-<section class="testimonial py-5" id="testimonial">
-    <div class="container">
-        <div class="row ">
-            <div class="col-md-4 py-5 bg-primary text-white text-center ">
-                <div class=" ">
-                    <div class="card-body">
-                        <img src="http://www.ansonika.com/mavia/img/registration_bg.svg" style="width:30%">
-                        <h2 class="py-3">Registros de equipos</h2>
-                        <p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.
-
-</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-8 py-5 border">
-                <h4 class="pb-4">Registre el equipo en cuestion</h4>
-                <form action="{{Route('equipment.update',$equipment->id)}}" method="post">
+<!-- Modal -->
+<div class="modal fade" id="editEquipo{{$key->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Usuario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+                <form action="{{Route('admin.equipment.update',$equipment->id)}}" method="post">
                   {{ csrf_field() }}
                    {{ method_field('PATCH') }}
                     <div class="form-row">
@@ -63,11 +57,13 @@
                     </div>
                  
                     
-                    <div class="form-row">
+
+      <div class="modal-footer">
+                       <div class="form-row">
                         <input type="submit" value="registrar" class="btn btn-primary">
                     </div>
                 </form>
-            </div>
-        </div>
+      </div>
     </div>
-</section>
+  </div>
+</div>

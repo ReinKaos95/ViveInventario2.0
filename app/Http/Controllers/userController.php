@@ -42,6 +42,14 @@ class userController extends Controller
      */
     public function store(Request $request)
     {
+    
+      if ($request->hasFile('photos')) {
+        $archivo=$request->file('photos');
+       $nombre= time().$archivo->getClientOriginalName();
+       $archivo->move(public_path().'/images/', $nombre);
+
+      }
+
        $users = new User;
        $users->name = $request->name;
        $users->surname = $request->surname;
@@ -49,6 +57,7 @@ class userController extends Controller
        $users->user = $request->user;
        $users->email = $request->email;
           $users->estatus = $request->estatus;
+             $users->photos = $nombre;
        $users->password = bcrypt($request->password);
        if ($users->save()) {
         //$users->assignRole($request->rol);
@@ -90,6 +99,12 @@ class userController extends Controller
      */
     public function update(Request $request, $id)
     {
+       if ($request->hasFile('photos')) {
+        $archivo=$request->file('photos');
+       $nombre= time().$archivo->getClientOriginalName();
+       $archivo->move(public_path().'/images/', $nombre);
+
+      }
               $users=User::findOrFail($id);
 
        $users->name = $request->name;
