@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-          'name', 'surname', 'cedula', 'email', 'user', 'password', 'estatus', 'photos' 
+          'name', 'surname', 'cedula', 'email', 'user', 'password', 'estatus', 'photos', 
     ];
 
     /**
@@ -30,5 +30,24 @@ class User extends Authenticatable
     public function departamentos()
     {
         return $this->belongsToMany(Departamentos::class, 'usuario_x_departamentos' , 'usxdp_uscedula', 'usxdp_dpid');
+    }
+
+        public function role()
+    {
+        return $this->belongsTo('App\Rol');
+    }
+
+   public function esAdmin(){
+        
+     if($this->role->rol_tipo=='superadmin'){
+
+            return true;
+
+        } 
+
+       else{ 
+        return false;
+    }
+
     }
 }

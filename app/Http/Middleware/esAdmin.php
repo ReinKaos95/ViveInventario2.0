@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class roleMiddleware
+class esAdmin
 {
     /**
      * Handle an incoming request.
@@ -15,7 +15,6 @@ class roleMiddleware
      */
     public function handle($request, Closure $next)
     {
-        //return $next($request);
-        return redirect('/home');
+        return $next($request);
     }
 }

@@ -12,6 +12,7 @@
  
         <tr>
           <th>Username</th>
+          <th>Rol</th>
           <th>Creado a </th>
           <th>Actualizado a</th>
           <th>Funciones</th>
@@ -20,6 +21,7 @@
         @foreach($users as $key)
         <tr>
           <td>{{$key->user}}</td>
+          <td>{{$key->us_rol_id}}</td>
           <td>{{$key->created_at}}</td>
           <td>{{$key->updated_at}}</td>
           <td>@include('forms.editUser') @include('vistasUsuario.verUsuario')</td>
