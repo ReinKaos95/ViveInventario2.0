@@ -15,7 +15,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+$user=Auth::User();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('admin/users', 'userController');
