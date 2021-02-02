@@ -39,7 +39,13 @@
                 <label for="inputEmail">Email address</label>
          
               </div>
-                                             <div class="form-label-group {{ $errors->has('estatus') ? ' has-error' : '' }}">
+
+             <div class="form-label-group {{ $errors->has('photos') ? ' has-error' : '' }}">
+                  <input type="file" name="photos" required>
+                       
+                      </div>
+
+                  <div class="form-label-group {{ $errors->has('estatus') ? ' has-error' : '' }}">
                     <input id="estatus" type="text" class="form-control" name="estatus" required>
                         <label for="inputUser">Estatus</label>
                       </div>

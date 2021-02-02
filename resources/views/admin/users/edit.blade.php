@@ -25,27 +25,27 @@
                 <label for="inputSurname">Surname</label>
 
               </div>
-                              <div class="form-label-group {{ $errors->has('cedula') ? ' has-error' : '' }}">
+                              <div class="form-label-group">
                     <input id="cedula" type="text" class="form-control" name="cedula"  value="{{$users->cedula}}" required>
                         <label for="inputCedula">Cedula</label>
 
               </div>
-                  <div class="form-label-group {{ $errors->has('user') ? ' has-error' : '' }}">
+                  <div class="form-label-group">
                     <input id="user" type="text" class="form-control" name="user" value="{{$users->user}}" required>
                         <label for="inputUser">Usuario</label>
                       </div>
 
-                    <div class="form-label-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                    <div class="form-label-group">
                  <input id="email" type="email" class="form-control" name="email" value="{{$users->email}}" required>
                 <label for="inputEmail">Email address</label>
          
               </div>
-                                            <div class="form-label-group {{ $errors->has('estatus') ? ' has-error' : '' }}">
+                                            <div class="form-label-group ">
                     <input id="estatus" type="text" class="form-control" name="estatus" value="{{$users->estatus}}" required>
                         <label for="inputUser">Estatus</label>
                       </div>
 
-                         <div class="form-label-group {{ $errors->has('password') ? ' has-error' : '' }}">
+                         <div class="form-label-group ">
                     <input id="password" type="password" class="form-control" name="password" value="{{$users->password}}"required>
                         <label for="inputPassword">Password</label>
 

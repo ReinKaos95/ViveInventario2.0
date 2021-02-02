@@ -34,11 +34,12 @@ class equiposController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function create()
     {
-      $tequid=TipoEquipo::all()->pluck('teq_nombre', 'teq_id');
-      $depts=Departamentos::all()->pluck('dep_nombre', 'dep_id');
-       return view('admin.equipment.create', compact('tequid', 'depts'));
+      $tipoEquipo=TipoEquipo::all()->pluck('teq_nombre', 'teq_id');
+      $departamentos=Departamentos::all()->pluck('dep_nombre', 'dep_id');
+       return view('admin.equipment.create', compact('tipoEquipo', 'departamentos'));
     }
 
     /**
@@ -86,9 +87,9 @@ class equiposController extends Controller
     public function edit($id)
     {
         $equipment=Equipos::findOrFail($id);
-        $tequid=TipoEquipo::all()->pluck('teq_nombre', 'teq_id');
-        $depts=Departamentos::all()->pluck('dep_nombre', 'dep_id');
-        return view('admin.equipment.edit', compact('equipment', 'tequid', 'depts'));
+        $tipoEquipo=TipoEquipo::all()->pluck('teq_nombre', 'teq_id');
+        $departamentos=Departamentos::all()->pluck('dep_nombre', 'dep_id');
+        return view('admin.equipment.edit', compact('equipment', 'tipoEquipo', 'departamentos'));
 
     }
 

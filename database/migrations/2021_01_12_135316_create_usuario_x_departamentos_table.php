@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsuarioXDepartamentosTable extends Migration
+class CreateUsuariosXDepartamentosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateUsuarioXDepartamentosTable extends Migration
      */
     public function up()
     {
-        Schema::create('usuario_x_departamentos', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('usuarios_x_departamentos', function (Blueprint $table) {
+            $table->increments('usxdp_id');
             $table->string('usxdp_descripcion');
             $table->string('usxdp_estatus');
             $table->integer('usxdp_uscedula');
@@ -32,6 +32,6 @@ class CreateUsuarioXDepartamentosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usuario_x_departamentos');
+        Schema::dropIfExists('usuarios_x_departamentos');
     }
 }
