@@ -1,10 +1,10 @@
 <h1 align="center">Zona de moderadores </h1>
 <h2 align="center">En construccion hasta que haya una orden.</h2>
-   <a href="{{ route('logout') }}"
+   <button href="{{ route('logout') }}" class="btn btn-primary" 
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Salir
-                                        </a>
+                                        </button>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
