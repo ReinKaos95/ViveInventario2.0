@@ -39,9 +39,11 @@
                 <li>
                     <a href="{{ url('admin/users/create') }}"> Registrar usuario</a>
                 </li>
+              
                 <li>
                    <a href="{{ url('admin/equipment') }}">Registrar Equipos</a>
                 </li>
+             
                 <li>
                      <a href="{{ url('admin/prestamos') }}"> Prestamos</a>
                 </li>

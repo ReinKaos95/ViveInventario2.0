@@ -12,6 +12,7 @@
 */
 Route::get('/', function () {
     return view('auth.login');
+
 });
 
 Auth::routes();
@@ -19,6 +20,8 @@ $user=Auth::User();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('admin/users', 'userController');
+
+Route::resource('mod', 'modController');
 
 Route::resource('admin/equipment', 'equiposController');
 

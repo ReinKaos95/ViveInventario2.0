@@ -39,15 +39,7 @@ class User extends Authenticatable
 
    public function esAdmin(){
         
-     if($this->role->rol_tipo=='superadmin'){
-
-            return true;
-
-        } 
-
-       else{ 
-        return false;
-    }
+     
 
     }
 }
