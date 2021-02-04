@@ -75,7 +75,7 @@
                       </div>
                                <div class="form-label-group {{ $errors->has('estatus') ? ' has-error' : '' }}">
                     <input id="estatus" type="text" class="form-control" name="estatus" required>
-                        <label for="inputUser">Estatus</label>
+                        <label for="imputEstatus">Estatus</label>
                                                         @if ($errors->has('estatus'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('estatus') }}</strong>

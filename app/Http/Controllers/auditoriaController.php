@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Auditoria;
 use Illuminate\Http\Request;
 
 class auditoriaController extends Controller
@@ -13,7 +13,8 @@ class auditoriaController extends Controller
      */
     public function index()
     {
-        //
+       $audits=Auditoria::all();
+       return view('admin.auditorias.index', compact('audits'));
     }
 
     /**
@@ -23,7 +24,7 @@ class auditoriaController extends Controller
      */
     public function create()
     {
-        //
+       return view('admin.auditorias.create',  compact('audits'));
     }
 
     /**

@@ -19,7 +19,7 @@ class CreateAccesoClientesTable extends Migration
             $table->string('acl_descripcion');
             $table->string('acl_estatus');
             $table->string('acl_pantalla');
-             $table->integer('acl_us_id')->references('id')->on('users');
+             //$table->integer('acl_us_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

@@ -47,7 +47,7 @@
 
                   <div class="form-label-group {{ $errors->has('estatus') ? ' has-error' : '' }}">
                     <input id="estatus" type="text" class="form-control" name="estatus" required>
-                        <label for="inputUser">Estatus</label>
+                        <label for="imputEstatus">Estatus</label>
                       </div>
      <div class="form-label-group {{ $errors->has('password') ? ' has-error' : '' }}">
                     <input id="password" type="password" class="form-control" name="password" required>

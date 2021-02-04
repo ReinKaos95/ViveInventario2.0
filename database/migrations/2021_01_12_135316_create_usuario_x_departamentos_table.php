@@ -13,7 +13,7 @@ class CreateUsuarioXDepartamentosTable extends Migration
      */
     public function up()
     {
-        Schema::create('usuarios_x_departamentos', function (Blueprint $table) {
+        Schema::create('usuario_x_departamentos', function (Blueprint $table) {
             $table->increments('usxdp_id');
             $table->string('usxdp_descripcion');
             $table->string('usxdp_estatus');
@@ -32,6 +32,6 @@ class CreateUsuarioXDepartamentosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usuarios_x_departamentos');
+        Schema::dropIfExists('usuario_x_departamentos');
     }
 }

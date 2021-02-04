@@ -42,8 +42,11 @@ class LoginController extends Controller
         if(\Auth::user()->us_rol_id == 1)
         {
             return '/home';
-        } else {
+        } else if(\Auth::user()->us_rol_id == 1){
             return '/mod';
+        }
+        else{
+            return '/errors/404';
         }
     }
 }

@@ -48,7 +48,7 @@
                      <a href="{{ url('admin/prestamos') }}"> Prestamos</a>
                 </li>
                 <li>
-                    <a href="#">Auditoria</a>
+                   <a href="{{ url('admin/auditorias') }}"> Auditoria</a>
                 </li>
                 <li>
                     <a href="#">Services</a>

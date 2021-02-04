@@ -11,12 +11,18 @@ class usuarioDepartamentosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+            public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
-               $dept['dept']=UsuarioXDepartamento::JOIN("departamentos","departamentos.dep_id","=","usuario_x_departamentos.usxdp_dpid")
+               /*$dept['dept']=UsuarioXDepartamento::JOIN("departamentos","departamentos.dep_id","=","usuario_x_departamentos.usxdp_dpid")
                                     -> orderBy('usuario_x_departamentos.usxdp_dpid', 'asc')
                                     -> paginate(8); 
-        return view('admin.usuariosxdepartamento.index', $dept );
+        return view('admin.usuariosxdepartamento.index', $dept );*/
+        $dept=UsuarioXDepartamento::all();
+        return view('admin.usuariosxdepartamento.index', compact('dept'));
     }
 
     /**

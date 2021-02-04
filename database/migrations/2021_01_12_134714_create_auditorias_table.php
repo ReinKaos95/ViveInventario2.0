@@ -20,7 +20,7 @@ class CreateAuditoriasTable extends Migration
             $table->string('au_ip');
             $table->string('au_navegador');
             $table->timestamp('au_fecha');
-            $table->integer('au_us_id')->references('id')->on('users');
+            //$table->integer('au_us_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

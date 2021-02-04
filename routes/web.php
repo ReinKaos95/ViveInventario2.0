@@ -25,6 +25,8 @@ Route::resource('mod', 'modController');
 
 Route::resource('admin/equipment', 'equiposController');
 
+Route::resource('admin/auditorias', 'auditoriaController');
+
 Route::resource('admin/prestamos', 'prestamosController');
 
 Route::resource('admin/usuariosxdepartamento', 'usuarioDepartamentosController');

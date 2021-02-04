@@ -18,13 +18,13 @@ class userController extends Controller
     }
     public function index()
     {
-       /*$users=User::all();
-       return view('admin.users.index', compact('users'));*/
-    $users['users']=User::JOIN("rols","rols.id","=","users.us_rol_id")
+       $users=User::all();
+       return view('admin.users.index', compact('users'));
+    /*$users['users']=User::JOIN("rols","rols.id","=","users.us_rol_id")
                                     -> SELECT("users.id", "name", "surname", "cedula", "user", "email", "photos", "estatus", "password", "users.created_at", "users.updated_at", "us_rol_id", "rol_tipo")
                                     -> orderBy('users.id', 'asc')
                                     -> paginate(8);           
-            return view('admin.users.index', $users );
+            return view('admin.users.index', $users );*/
     }
 
     /**
