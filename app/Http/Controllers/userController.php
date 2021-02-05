@@ -109,6 +109,8 @@ class userController extends Controller
        $nombre= time().$archivo->getClientOriginalName();
        $archivo->move(public_path().'/images/', $nombre);
 
+       
+
       }
               $users=User::findOrFail($id);
 

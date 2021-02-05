@@ -47,7 +47,7 @@
                         <label for="inputUser">Estatus</label>
                       </div>
                                      <div class="form-label-group">
-                  <input type="file" name="photos" required>
+                  <input type="file" name="photos" >
                        
                       </div>
                          <div class="form-label-group ">

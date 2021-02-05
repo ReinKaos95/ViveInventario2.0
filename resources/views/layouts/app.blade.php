@@ -37,7 +37,9 @@
                                 </a>
                 </li>
                 <li>
+                    @if(Auth::User()->us_rol_id!=3)
                     <a href="{{ url('admin/users/create') }}"> Registrar usuario</a>
+                     @endif
                 </li>
               
                 <li>
@@ -48,7 +50,9 @@
                      <a href="{{ url('admin/prestamos') }}"> Prestamos</a>
                 </li>
                 <li>
+                    @if(Auth::User()->us_rol_id==1)
                    <a href="{{ url('admin/auditorias') }}"> Auditoria</a>
+                   @endif
                 </li>
                 <li>
                     <a href="#">Services</a>
@@ -57,7 +61,9 @@
                      <a href="{{ url('admin/usuariosxdepartamento') }}"> Usuarios por departamentos</a>
                 </li>
                 <li>
+                   
                      <a href="{{ url('admin/users') }}"> Configuracion de Usuarios</a>
+              
                 </li>
                 <li>
                     <a href="{{ route('logout') }}"

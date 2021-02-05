@@ -37,16 +37,4 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function redirectTo()
-    {
-        if(\Auth::user()->us_rol_id == 1)
-        {
-            return '/home';
-        } else if(\Auth::user()->us_rol_id == 1){
-            return '/mod';
-        }
-        else{
-            return '/errors/404';
-        }
-    }
 }
