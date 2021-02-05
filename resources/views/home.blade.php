@@ -3,6 +3,7 @@
 @section('content')
  <link href="{{ asset('css/clock.css') }}" rel="stylesheet">
 <div class="contenedor">
+  
   <div class="widget">
         <div class="row">
          <div class="text-center mb-5">

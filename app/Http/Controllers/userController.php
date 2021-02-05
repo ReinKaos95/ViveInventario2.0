@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\User;
 use App\Rol;
+use App\TipoUsuario;
 use Illuminate\Http\Request;
 
 class userController extends Controller
@@ -20,11 +21,12 @@ class userController extends Controller
     {
        $users=User::all();
        return view('admin.users.index', compact('users'));
-    /*$users['users']=User::JOIN("rols","rols.id","=","users.us_rol_id")
-                                    -> SELECT("users.id", "name", "surname", "cedula", "user", "email", "photos", "estatus", "password", "users.created_at", "users.updated_at", "us_rol_id", "rol_tipo")
+    $users['users']=User::JOIN("rols","rols.id","=","users.us_rol_id")
+                                    ->JOIN("tipo_usuarios","tipo_usuarios.id","=","users.us_tu_id")
+                                    -> SELECT("users.id", "name", "surname", "cedula", "user", "email", "photos", "estatus", "password", "users.created_at", "users.updated_at", "tu_tipo", "rols.id")
                                     -> orderBy('users.id', 'asc')
                                     -> paginate(8);           
-            return view('admin.users.index', $users );*/
+            return view('admin.users.index', $users );
     }
 
     /**
@@ -109,7 +111,7 @@ class userController extends Controller
        $nombre= time().$archivo->getClientOriginalName();
        $archivo->move(public_path().'/images/', $nombre);
 
-       
+
 
       }
               $users=User::findOrFail($id);
@@ -148,4 +150,5 @@ class userController extends Controller
         ]);
        }
     }
+    
 }

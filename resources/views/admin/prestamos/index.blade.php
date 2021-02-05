@@ -13,29 +13,21 @@
         <tr>
           <th>Usuario</th>
             <th>Equipo</th>
-            <th>Codigo salida</th>
-            <th>Fecha de salida</th>
-            <th>Fecha de entrada</th>
-            <th>Estatus</th>
-            <th>Agregado a</th>
-            <th>Actualizado a</th>
+            <th>Creado a </th>
+          <th>Actualizado a</th>
             <th>Acciones</th>
          </tr>
             </thead>
         <tbody>
         
-        @foreach($prestamo as $key)
+        @foreach($prestamo as $info)
         <tr>
-          <td>{{$key->user}}</td>
-          <td>{{$key->id}}</td>
-          <td>{{$key->pres_salida}}</td>
-          <td>{{$key->pres_fecha_salida}}</td>
-          <td>{{$key->pres_fecha_entrada}}</td>
-          <td>{{$key->pres_estatus}}</td>
-          <td>{{$key->created_at}}</td>
-          <td>{{$key->updated_at}}</td>
-          <td><a href="{{url('/admin/prestamos/'.$key->id.'/edit')}}" class="btn btn-primary">Actualizar</a>
-               @include('admin.prestamos.delete',['prestamos'=>$key])
+          <td>{{$info->user}}</td>
+          <td>{{$info->id}}</td>
+          <td>{{$info->created_at}}</td>
+          <td>{{$info->updated_at}}</td>
+          <td><a href="{{url('/admin/prestamos/'.$info->id.'/edit')}}" class="btn btn-primary">Actualizar</a>
+                @include('vistasUsuario.verPrestamo')
              </td>
         </tr>
         @endforeach

@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\PrestamoEquipo;
 use App\User;
 use App\Equipos;
+use Barryvdh\DomPDF\Facade as PDF;
 class prestamosController extends Controller
 {
     /**
@@ -123,5 +124,11 @@ class prestamosController extends Controller
     {
     PrestamoEquipo::destroy($id);
       return back();
+    }
+    public function exportInvoice()
+    {
+     $prestamos=PrestamoEquipo::get();
+     $pdf = PDF::loadView('admin.pdf.invoice', compact('prestamos') );
+     return $pdf->download('invoice.pdf');
     }
 }

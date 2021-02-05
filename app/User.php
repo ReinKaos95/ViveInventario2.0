@@ -37,9 +37,9 @@ class User extends Authenticatable
         return $this->belongsTo('App\Rol');
     }
 
-   public function esAdmin(){
+   public function tipo(){
         
-     
+      return $this->belongsTo('App\TipoUsuario');
 
     }
 }

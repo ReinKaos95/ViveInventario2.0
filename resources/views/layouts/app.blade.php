@@ -43,11 +43,15 @@
                 </li>
               
                 <li>
+                     @if(Auth::User()->us_rol_id!=3)
                    <a href="{{ url('admin/equipment') }}">Registrar Equipos</a>
+                    @endif
                 </li>
              
                 <li>
+                   
                      <a href="{{ url('admin/prestamos') }}"> Prestamos</a>
+                    
                 </li>
                 <li>
                     @if(Auth::User()->us_rol_id==1)
@@ -55,10 +59,14 @@
                    @endif
                 </li>
                 <li>
-                    <a href="#">Services</a>
+                      @if(Auth::User()->us_rol_id!=3)
+                    <a href="{{ url('prueba') }}">Modulos de acceso</a>
+                     @endif
                 </li>
-                 <li>
+                 <li> 
+                    @if(Auth::User()->us_rol_id!=2 && Auth::User()->us_rol_id!=3)
                      <a href="{{ url('admin/usuariosxdepartamento') }}"> Usuarios por departamentos</a>
+                     @endif
                 </li>
                 <li>
                    

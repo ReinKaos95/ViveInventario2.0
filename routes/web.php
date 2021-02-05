@@ -29,10 +29,4 @@ Route::resource('admin/prestamos', 'prestamosController');
 
 Route::resource('admin/usuariosxdepartamento', 'usuarioDepartamentosController');
 
-/*Route::get('pdf', function(){
-	$prestamo = App\PrestamoEquipo::all();
-	$prestamo=App\User::all()->pluck('user');
-    //$prestamo=App\Equipos::all();
- $pdf = PDF::loadView('prueba', ['prestamo' => $prestamo]);
- return $pdf->download('prueba.pdf');
-});*/
+Route::get('invoice', 'prestamosController@exportInvoice')->name('invoice.pdf');
